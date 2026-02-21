@@ -11,7 +11,7 @@ export default function Schedule({ busLines, selectedLine, onSelectLine }) {
   const [period, setPeriod] = useState('Seg–Sex')
 
   const periods = line ? Object.keys(line.schedules) : []
-const detail  = line ? (line.schedule_detail?.[period] ?? []) : []
+  const detail  = line ? (line.schedule_detail?.[period] ?? []) : []
   function handleLineChange(id) {
     const found = busLines.find(l => l.id === Number(id))
     if (found) {
