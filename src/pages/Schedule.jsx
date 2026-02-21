@@ -4,15 +4,14 @@
 
 import { useState } from 'react'
 import Badge from '../components/Badge'
-import { SCHEDULE_DETAIL } from '../data/busLines'
+
 
 export default function Schedule({ busLines, selectedLine, onSelectLine }) {
   const [line, setLine] = useState(selectedLine ?? busLines[0] ?? null)
   const [period, setPeriod] = useState('Seg–Sex')
 
   const periods = line ? Object.keys(line.schedules) : []
-  const detail  = line ? (SCHEDULE_DETAIL[line.name]?.[period] ?? []) : []
-
+const detail  = line ? (line.schedule_detail?.[period] ?? []) : []
   function handleLineChange(id) {
     const found = busLines.find(l => l.id === Number(id))
     if (found) {
